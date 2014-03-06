@@ -1,8 +1,3 @@
-AutoMapperForRuby
-=================
-
-it is a mapper for mapping similar properties of two object of different types
-
 #!/usr/local/bin/ruby -w
 
 def mapper(source, destination)
@@ -32,22 +27,3 @@ def mapper(source, destination)
   end
 return destination
 end
-
-class Person
-   attr_accessor :name, :phone
- end
- 
-class Pen
-   attr_accessor :name, :id
-end
-
- 
- rajan = Person.new
- rajan.name = 'rajan'
- rajan.phone = '000000000'
- 
- camel = Pen.new
- 
- camel = mapper(rajan,camel)
- puts camel.name
- 
