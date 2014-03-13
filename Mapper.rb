@@ -5,14 +5,14 @@ def mapper(source, destination)
   src = []
   dest = []
 
-    source.class.instance_methods.each do |t|
+    source.class.instance_methods(false).each do |t|
       if previous +'=' == t.to_s  then
       src.push(previous)
       end
     previous  = t.to_s
     end
 
-   destination.class.instance_methods.each do |t|
+   destination.class.instance_methods(false).each do |t|
       if previous +'=' == t.to_s then
       dest.push(previous)
       end
@@ -20,8 +20,6 @@ def mapper(source, destination)
    end
 
   final = src & dest
-  final.pop
-
   final.each do |v|
   destination.instance_variable_set('@'+v,source.instance_variable_get('@'+v))
   end
